@@ -32,7 +32,7 @@ const clips = [
 
 const List = (props) =>
   <div>
-    <h1>Template</h1>
+    <h1><Link to='/'>Messages</Link></h1>
     <ul>
       {props.route.messages.map(message => 
         <li key={message.id}>
@@ -47,6 +47,7 @@ const List = (props) =>
 
 const Player = (props) => 
   <div style={{width: '100%', position: 'fixed', bottom: 0, left: 0}}>
+    <Link to='/'>Close msg {props.params.id}</Link>
     <AudioPlayer playlist={[]} />
   </div>
 
@@ -54,8 +55,8 @@ export default class App extends React.Component {
   render() {
     return (
       <Router history={browserHistory}>
-        <Route path="/" component={List} messages={clips}>
-          <Route path="audio/:id" component={Player} />
+        <Route path='/' component={List} messages={clips}>
+          <Route path='audio/:id' component={Player} />
         </Route>
       </Router>
     )

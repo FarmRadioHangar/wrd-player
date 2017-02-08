@@ -3,7 +3,12 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './app.jsx';
 
-render( <AppContainer><App/></AppContainer>, document.querySelector("#app"));
+render( 
+  <AppContainer>
+    <App/>
+  </AppContainer>, 
+  document.querySelector('#app')
+);
 
 if (module && module.hot) {
   module.hot.accept('./app.jsx', () => {
@@ -12,7 +17,7 @@ if (module && module.hot) {
       <AppContainer>
         <App/>
       </AppContainer>,
-      document.querySelector("#app")
+      document.querySelector('#app')
     );
   });
 }

@@ -32,13 +32,15 @@ app.get('/', function(req, res) {
           res.status(500).send('Error getting worksheet rows.')
           return;
         }
+        console.log(rows);
         res.send(rows.map(row => ({
           url: row.audiourl,
           length: row.audiolength,
           comments: row.audiocomments,
           question: row.question,
           datetime: row.datereceived,
-          row: row.rid
+          row: row.rid,
+          phone: row.subscriberphone
         })));
       });
     });

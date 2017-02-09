@@ -1,3 +1,3 @@
 # wrd-player
 
-Audio player for World Radio Day response visualization.
+Audio player and message dashboard for World Radio Day celebration.

@@ -51,14 +51,23 @@ const Player = (props) =>
     <AudioPlayer playlist={[]} />
   </div>
 
+function fetchMessages() {
+  console.log('fetch');
+}
+
 export default class App extends React.Component {
   render() {
     return (
-      <Router history={browserHistory}>
-        <Route path='/' component={List} messages={clips}>
-          <Route path='audio/:id' component={Player} />
-        </Route>
-      </Router>
+      <div>
+        <button onClick={fetchMessages}>
+          Load messages
+        </button>
+        <Router history={browserHistory}>
+          <Route path='/' component={List} messages={clips}>
+            <Route path='audio/:id' component={Player} />
+          </Route>
+        </Router>
+      </div>
     )
   }
 }

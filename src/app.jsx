@@ -1,6 +1,7 @@
-import React  from 'react';
-import $      from 'jquery'
-import Player from 'react-audio-player';
+import React   from 'react';
+import $       from 'jquery'
+import Player  from 'react-audio-player';
+import { RotatingPlane } from 'better-react-spinkit';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -67,8 +68,8 @@ export default class App extends React.Component {
     return (
       <div>
         {fetching ? (
-          <div>
-            Fetching messages&hellip;
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '95vh'}}>
+            <RotatingPlane size={55} />
           </div>
         ) : (
           <div>

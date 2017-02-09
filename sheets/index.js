@@ -32,7 +32,6 @@ app.get('/', function(req, res) {
           res.status(500).send('Error getting worksheet rows.')
           return;
         }
-        console.log(rows);
         res.send(rows.map(row => ({
           url: row.audiourl,
           length: row.audiolength,

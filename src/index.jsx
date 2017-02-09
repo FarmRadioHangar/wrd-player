@@ -5,7 +5,7 @@ import App from './app.jsx';
 
 render( 
   <AppContainer>
-    <App/>
+    <App />
   </AppContainer>, 
   document.querySelector('#app')
 );
@@ -15,7 +15,7 @@ if (module && module.hot) {
     const App = require('./app.jsx').default;
     render(
       <AppContainer>
-        <App/>
+        <App />
       </AppContainer>,
       document.querySelector('#app')
     );

@@ -17,6 +17,7 @@
   "license": "MIT",
   "homepage": "http://github.com/FarmRadioHangar/wrd-player#readme",
   "dependencies": {
+    "jquery": "^3.1.1",
     "node-sass": "^4.3.0",
     "react": "15.4.2",
     "react-dom": "15.4.2",

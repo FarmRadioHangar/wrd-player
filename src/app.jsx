@@ -1,6 +1,7 @@
 import React from 'react';
 import AudioPlayer from 'react-responsive-audio-player';
 import { Router, Route, Link, browserHistory } from 'react-router';
+import $ from 'jquery'
 
 // ----------- test data -----------
 const clips = [
@@ -52,7 +53,11 @@ const Player = (props) =>
   </div>
 
 function fetchMessages() {
-  console.log('fetch');
+  const opts = {crossDomain: true};
+  $.get('http://localhost:3000', opts, (data) => {
+    //console.log('-------------');
+    //console.log(data);
+  });
 }
 
 export default class App extends React.Component {

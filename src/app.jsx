@@ -22,7 +22,7 @@ export default class App extends React.Component {
   fetchMessages() {
     this.setState({fetching: true});
     $.ajax({
-      url: 'http://localhost:3000',
+      url: 'http://localhost:3003/messages',
       type: 'GET',
       crossDomain: true,
       success: (messages) => { 

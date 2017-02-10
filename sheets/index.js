@@ -17,7 +17,7 @@ api.useServiceAccountAuth(creds, function(err) {
   });
 });
 
-app.get('/', function(req, res) {
+app.get('/messages', function(req, res) {
   api.useServiceAccountAuth(creds, function(err) {
     api.getInfo(function(err, info) {
       var sheet = info.worksheets.filter(sheet => sheet.title === 'Audio');
@@ -46,6 +46,6 @@ app.get('/', function(req, res) {
   });
 });
 
-app.listen(3000, function() {
-  console.log('App listening on port 3000.');
+app.listen(3003, function() {
+  console.log('App listening on port 3003.');
 });

@@ -2,7 +2,6 @@ import React   from 'react';
 import $       from 'jquery'
 import Player  from 'react-audio-player';
 import { RotatingPlane } from 'better-react-spinkit';
-import Scene   from './scene.jsx';
 
 export default class App extends React.Component {
   constructor(props, context) {
@@ -79,9 +78,6 @@ export default class App extends React.Component {
           </div>
         ) : (
           <div>
-
-            <Scene />
-
             <h1><a href='/#'>App</a></h1>
             <button onClick={() => this.fetchMessages()}>
               Load messages

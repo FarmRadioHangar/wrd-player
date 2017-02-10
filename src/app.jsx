@@ -39,8 +39,10 @@ export default class App extends React.Component {
     }
     const location = window.location.hash.replace(/^#\/?|\/$/g, '').split('/');
     if (location && location[0] === 'messages') {
-      const message = messages[location[1]]; 
-      if (message) {
+      const id = location[1];
+      let message = messages.filter(m => m.row === id);
+      if (message.length) {
+        message = message[0];
         if (!this.state.selected || this.state.selected.url != message.url) {
           this.setState({playerMode: 'buffering'});
         }
@@ -51,7 +53,10 @@ export default class App extends React.Component {
       } else {
         this.setState({selected: null, error: true});
       }
-    } 
+    } else {
+      // Default route
+      this.setState({selected: null, error: false});
+    }
   }
   componentDidMount() {
     this.fetchMessages();
@@ -78,9 +83,9 @@ export default class App extends React.Component {
               Load messages
             </button>
             <ul>
-              {messages.map((message, i) => 
-                <li key={i}>
-                  <a href={`/#/messages/${i}`}>Link</a>
+              {messages.map((message) => 
+                <li key={message.row}>
+                  <a href={`/#/messages/${message.row}`}>Link</a>
                   {JSON.stringify(message)}
                 </li>
               )}
@@ -91,14 +96,14 @@ export default class App extends React.Component {
               </div>
             ) : (
               selected && (
-                <div>
+                <div style={{background: '#ffffff', margin: 0, padding: 0, position: 'fixed', left: 0, bottom: 0}}>
                   mode: {playerMode || 'playing'}
                   {'error' == playerMode ? (
                     <div>
                       Unable to play audio. Perhaps this message is made of cheese.
                     </div>
                   ) : (
-                    <div style={{margin: 0, padding: 0, position: 'fixed', left: 0, bottom: 0}}>
+                    <div>
                       {'buffering' == playerMode && (
                         <div>
                           Buffering&hellip;

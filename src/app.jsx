@@ -98,23 +98,20 @@ export default class App extends React.Component {
                       Unable to play audio. Perhaps this message is made of cheese.
                     </div>
                   ) : (
-                    <div>
-                      <p>
-                        {''+selected.url}
-                      </p>
-                      <div style={{margin: 0, padding: 0, position: 'fixed', left: 0, bottom: 0}}>
-                        {'buffering' == playerMode && (
-                          <div>
-                            Buffering&hellip;
-                          </div>
-                        )}
-                        <Player
-                          src       = {selected.url} 
-                          onCanPlay = {() => this.setState({playerMode: 'playing'})}
-                          onError   = {() => this.setState({playerMode: 'error'})}
-                          autoPlay
-                        />
-                      </div>
+                    <div style={{margin: 0, padding: 0, position: 'fixed', left: 0, bottom: 0}}>
+                      {'buffering' == playerMode && (
+                        <div>
+                          Buffering&hellip;
+                        </div>
+                      )}
+                      {''+selected.url}
+                      <Player
+                        style     = {{width: '100vw'}}
+                        src       = {selected.url} 
+                        onCanPlay = {() => this.setState({playerMode: 'playing'})}
+                        onError   = {() => this.setState({playerMode: 'error'})}
+                        autoPlay
+                      />
                     </div>
                   )}
                 </div>
